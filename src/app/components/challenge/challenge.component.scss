@@ -1,0 +1,123 @@
+.progress {
+  --bs-progress-border-radius: 0;
+  --bs-progress-height: 2rem;
+  --bs-progress-bar-bg: #6a674e;
+  --bs-progress-font-size: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: .25rem;
+}
+
+.progress-bar {
+  transition: none;
+}
+
+.card {
+  //overflow: hidden;
+  height: 100%;
+  transition: opacity 300ms;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  &.completed {
+    opacity: .25;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.card-body {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  gap: .5rem;
+}
+
+.type-indicator {
+  --type-indicator-color: transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: .125rem;
+  background-color: var(--type-indicator-color);
+}
+
+.type-poison {
+  --type-indicator-color: #00c200;
+}
+
+.type-bleed {
+  --type-indicator-color: #ea0000;
+}
+
+.type-fire {
+  --type-indicator-color: #e17000;
+}
+
+.type-high-velocity {
+  --type-indicator-color: #ffffff;
+}
+
+.progress {
+  position: relative;
+}
+
+.progress-text {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .875rem;
+}
+
+.title {
+  font-size: .875rem;
+}
+
+.rewards {
+  display: flex;
+  justify-content: space-around;
+}
+
+.reward-event-points {
+  color: #99d1db;
+}
+
+.reward-blood-bound {
+  color: #e1aa83;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: .25rem;
+  gap: .25rem;
+
+}
+
+.action-decrement, .action-increment {
+  height: .5rem;
+  text-align: center;
+  line-height: .5rem;
+  background-color: #6a674e;
+}
+
+.input-progression {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  padding: 0;
+}
+
+.lock {
+  height: 16px; width: 16px; display: block; position:absolute; top:-1rem;left:50%; transform: translateX(-50%)
+}

@@ -1,0 +1,29 @@
+<ng-template #content let-offcanvas>
+  <div class="offcanvas-header">
+    <h4 class="offcanvas-title" id="offcanvas-basic-title">Settings</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+  </div>
+  <div class="offcanvas-body">
+
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="wideContainer"
+             [ngModel]="settings.options().wideContainer"
+             (ngModelChange)="settings.setOption('wideContainer', $event)"
+      >
+      <label class="form-check-label" for="wideContainer">Wide</label>
+    </div>
+
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="wideFont"
+             [ngModel]="settings.options().wideFont"
+             (ngModelChange)="settings.setOption('wideFont', $event)"
+      >
+      <label class="form-check-label" for="wideFont">Wide font</label>
+    </div>
+
+  </div>
+</ng-template>
+
+<button class="btn btn-sm btn-secondary" (click)="offcanvasService.open(content, {position:'end', backdropClass: 'backdrop-transparent'})">
+  Settings
+</button>

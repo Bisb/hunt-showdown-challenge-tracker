@@ -1,0 +1,15 @@
+.settings {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: .5rem;
+}
+
+main {
+  transition: max-width 300ms;
+
+  &.container-fluid {
+    max-width: 100%;
+  }
+}

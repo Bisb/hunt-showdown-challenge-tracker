@@ -1,0 +1,50 @@
+<div class="card shadow" [class.completed]="completed()">
+  <div class="card-body">
+    @if (challenge().battlePass) {
+      <app-lock-svg class="lock"/>
+    }
+    @if (challenge().dmgType) {
+      <div class="type-indicator"
+           [ngClass]="{
+         'type-poison': challenge().dmgType === 'poison',
+         'type-bleed': challenge().dmgType === 'bleed',
+         'type-fire': challenge().dmgType === 'fire',
+         'type-high-velocity': challenge().dmgType === 'high-velocity',
+         }"
+      ></div>
+    }
+    <div class="title">
+      {{ challenge().name }}
+    </div>
+
+    <div>
+      <div class="progress" role="progressbar" aria-label="Basic example"
+           aria-valuemin="0"
+           [attr.aria-valuenow]="challenge().progression"
+           [attr.aria-valuemax]="challenge().maxValue">
+        <div class="progress-bar" [style.width.%]="progressionPercentage()"></div>
+        <input (ngModelChange)="onProgressionChange($event)"
+               [max]="challenge().maxValue"
+               [ngModel]="challenge().progression"
+               class="form-control input-progression"
+               min="0"
+               step="1"
+               type="range">
+        <div class="progress-text">
+          {{ challenge().progression }} / {{ challenge().maxValue }}
+        </div>
+      </div>
+    </div>
+
+    <div class="rewards">
+      <div class="reward-event-points" ngbTooltip="Event points" placement="bottom" container="body"
+           [class.d-none]="challenge().eventPoints <= 0">
+        {{ challenge().eventPoints }}
+      </div>
+      <div class="reward-blood-bound" ngbTooltip="Blood bounds" placement="bottom" container="body"
+           [class.d-none]="challenge().bloodBounds <= 0">
+        {{ challenge().bloodBounds }}
+      </div>
+    </div>
+  </div>
+</div>

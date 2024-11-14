@@ -1,0 +1,13 @@
+<div class="week">
+  <div class="week-title" role="button" (click)="toggleHidden()">
+    Week {{ week().number }}
+  </div>
+
+  @if (week().hidden !== true) {
+    <div class="challenge-list">
+      @for (challenge of week().challenges; track $index) {
+        <app-challenge [challenge]="challenge" (challengeChange)="onChallengeUpdated($event, $index)"/>
+      }
+    </div>
+  }
+</div>
